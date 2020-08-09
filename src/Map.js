@@ -10,6 +10,8 @@ export default function Map({ width, height, viewState, onViewStateChange }) {
       id: "values",
       data: `https://a.tiles.mapbox.com/v4/mappingmtl.anlfff5k/{z}/{x}/{y}.vector.pbf?access_token=${getAccessToken()}`,
       getFillColor: (d) => getColor(d.properties.price),
+      getLineWidth: 1,
+      lineWidthUnits: "pixels",
       pickable: true,
       autoHighlight: true,
       uniqueIdProperty: "id",
