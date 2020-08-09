@@ -9,10 +9,10 @@ export default function Map({ width, height, viewState, onViewStateChange }) {
     new MVTLayer({
       id: "values",
       data: `https://a.tiles.mapbox.com/v4/mappingmtl.anlfff5k/{z}/{x}/{y}.vector.pbf?access_token=${getAccessToken()}`,
-      uniqueIdProperty: (d) => d.object.properties.id,
       getFillColor: (d) => getColor(d.properties.price),
       pickable: true,
       autoHighlight: true,
+      uniqueIdProperty: "id",
       onClick: (info) => console.log(info.object.properties.id),
     }),
   ];
