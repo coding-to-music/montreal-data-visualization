@@ -1,7 +1,7 @@
 export const Montreal = {
-  longitude: -73.648657,
-  latitude: 45.540269,
-  zoom: 10.5,
+  longitude: -73.7,
+  latitude: 45.55,
+  zoom: 11,
   pitch: 0,
   bearing: 0,
 };
