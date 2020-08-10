@@ -3,17 +3,63 @@
   position: absolute;
   z-index: 10000;
   left: 0;
-  top: 50%;
+  top: 40%;
   background: #333;
   color: white;
 }
 
-.legendEntry {
-  display: flex;
+a {
+  color: gainsboro;
+  text-decoration: none;
+}
+
+svg {
+  fill: gainsboro;
+  margin-left: 0.5em;
+}
+
+.legendTarget {
+  border-bottom: 1px solid transparent;
+}
+
+.legendTarget:hover {
+  border-bottom: 1px solid gainsboro;
+}
+
+.legendTitle {
+  text-transform: uppercase;
+  font-weight: bold;
   margin: 0.5em;
 }
+
+.targetInput {
+  width: 50px;
+}
+
+.legendContainer {
+  display: flex;
+}
+
+.legendPalette {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .legendColor {
-  width: 10px;
-  height: 10px;
   margin: 0.25em;
+  width: 1em;
+  height: 1.25em;
+}
+
+.legendRange {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.legendValue {
+  margin: 0.25em;
+  color: gainsboro;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
 }
