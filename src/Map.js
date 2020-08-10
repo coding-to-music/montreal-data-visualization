@@ -4,14 +4,7 @@ import { DeckGL, MVTLayer } from "deck.gl";
 import getAccessToken from "./getAccessToken.js";
 import getColor from "./getColor.js";
 
-export default function Map({
-  width,
-  height,
-  viewState,
-  onViewStateChange,
-  target,
-  range,
-}) {
+export default function Map({ width, height, viewState, onViewStateChange }) {
   const layers = [
     new MVTLayer({
       id: "values",
