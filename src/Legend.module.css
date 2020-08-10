@@ -8,11 +8,6 @@
   color: white;
 }
 
-a {
-  color: gainsboro;
-  text-decoration: none;
-}
-
 svg {
   fill: gainsboro;
   margin-left: 0.5em;
@@ -24,6 +19,7 @@ svg {
 
 .legendTarget:hover {
   border-bottom: 1px solid gainsboro;
+  cursor: pointer;
 }
 
 .legendTitle {

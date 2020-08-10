@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import styles from "./App.module.css";
 import Map from "./Map";
 import { FlyToInterpolator } from "react-map-gl";
 import Legend from "./Legend";
+import useOnClickOutside from "./useOnClickOutside";
 
 function App() {
   const locations = {
@@ -14,9 +15,18 @@ function App() {
       bearing: 0,
     },
   };
+  const ref = useRef();
   const [target] = useState(300000);
   const [range] = useState([0.05, 0.15, 0.3]);
   const [viewState, setViewState] = useState(locations.Montreal);
+  const [isModalOpen, setModalOpen] = useState(false);
+
+  useOnClickOutside(ref, () => setModalOpen(false));
+  const handleSetModalOpen = () => {
+    setModalOpen(true);
+    console.log("opening modal");
+  };
+
   const handleChangeViewState = ({ viewState }) => setViewState(viewState);
   const handleFlyTo = (destination) => {
     setViewState({
@@ -37,7 +47,16 @@ function App() {
         target={target}
         range={range}
       />
-      <Legend target={target} range={range} />
+      <Legend
+        target={target}
+        range={range}
+        handleSetModalOpen={handleSetModalOpen}
+      />
+      {isModalOpen ? (
+        <div ref={ref} className={styles.modal}>
+          Click anywhere outside to close.
+        </div>
+      ) : null}
       <div className={styles.controls}>
         {Object.keys(locations).map((key) => {
           return (
