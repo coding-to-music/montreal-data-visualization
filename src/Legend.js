@@ -18,7 +18,7 @@ export default function Legend(props) {
     <div className={styles.legend}>
       {colorNames.map((name, index) => {
         return (
-          <div className={styles.legendEntry}>
+          <div className={styles.legendEntry} key={index}>
             <div
               className={styles.legendColor}
               style={{ background: colors[name] }}
