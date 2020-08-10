@@ -1,0 +1,19 @@
+.legend {
+  padding: 0.25em;
+  position: absolute;
+  z-index: 10000;
+  left: 0;
+  top: 50%;
+  background: #333;
+  color: white;
+}
+
+.legendEntry {
+  display: flex;
+  margin: 0.5em;
+}
+.legendColor {
+  width: 10px;
+  height: 10px;
+  margin: 0.25em;
+}

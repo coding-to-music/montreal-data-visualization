@@ -3,8 +3,11 @@ import styles from "./App.module.css";
 import * as Locations from "./locations";
 import Map from "./Map";
 import { FlyToInterpolator } from "react-map-gl";
+import Legend from "./Legend";
 
 function App() {
+  const [target, setTarget] = useState(400000);
+  const [range, setRange] = useState([0.05, 0.15, 0.3]);
   const [viewState, setViewState] = useState(Locations.Montreal);
   const handleChangeViewState = ({ viewState }) => setViewState(viewState);
   const handleFlyTo = (destination) => {
@@ -23,7 +26,10 @@ function App() {
         height="100vh"
         viewState={viewState}
         onViewStateChange={handleChangeViewState}
+        target={target}
+        range={range}
       />
+      <Legend target={target} range={range} />
       <div className={styles.controls}>
         {Object.keys(Locations).map((key) => {
           return (

@@ -1,19 +1,20 @@
 import colors from "./colors.js";
 import colorNames from "./colorNames.js";
 
-const target = 500000;
+const target = 400000;
 const range = [0.05, 0.15, 0.3];
 
 const bins = [
   ...[
-    ...range.map((value) => 1 - value),
-    0,
+    ...range.sort((a, b) => b - a).map((value) => 1 + value),
+
     1,
-    ...range.map((value) => 1 + value),
-  ].sort(),
+    ...range.sort((a, b) => b - a).map((value) => 1 - value),
+    0,
+  ],
 ].map((value) => value * target);
 
-const getBin = (value) => Math.max(...bins.filter((bin) => bin < value));
+const getBin = (value) => Math.max(...bins.filter((bin) => value >= bin));
 const getColor = (value) =>
   colors[colorNames[bins.indexOf(getBin(value))]]
     .replace("rgb(", "")

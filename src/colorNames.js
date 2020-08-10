@@ -1,12 +1,12 @@
 const colorNames = [
-  "navy",
-  "royalblue",
-  "skyblue",
-  "turquoise",
-  "yellow",
-  "orange",
-  "red",
   "maroon",
+  "red",
+  "orange",
+  "yellow",
+  "turquoise",
+  "skyblue",
+  "royalblue",
+  "navy",
 ];
 
 module.exports = colorNames;
