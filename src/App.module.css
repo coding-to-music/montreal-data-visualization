@@ -9,8 +9,8 @@ body {
 
 .modal {
   position: absolute;
-  top: 53%;
-  left: 17%;
+  top: 50vh;
+  left: 145px;
   z-index: 100000;
   width: 200px;
   height: 50px;
