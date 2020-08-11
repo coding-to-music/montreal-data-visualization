@@ -29,7 +29,7 @@ export default function Legend(props) {
           {bins.map((value, index) =>
             index !== bins.length - 1 ? (
               <div className={styles.legendValue} key={index}>
-                {value === target ? (
+                {index === 3 ? (
                   <div
                     className={styles.legendTarget}
                     onClick={() => handleSetSettingsOpen()}

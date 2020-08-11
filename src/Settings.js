@@ -7,7 +7,7 @@ const Settings = React.forwardRef((props, ref) => {
     <React.Fragment>
       {isSettingsOpen ? (
         <div ref={ref} className={styles.modal}>
-          Click anywhere outside to close.
+          <div>{props.children}</div>
         </div>
       ) : null}
     </React.Fragment>

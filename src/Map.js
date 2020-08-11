@@ -3,18 +3,15 @@ import MapGL from "react-map-gl";
 import { DeckGL, MVTLayer } from "deck.gl";
 import getAccessToken from "./getAccessToken.js";
 import getColor from "./getColor.js";
-import useGetBins from "./useGetBins";
 
 export default function Map({
   width,
   height,
   viewState,
   onViewStateChange,
-  target,
-  range,
+  bins,
   handleSetPopupOpen,
 }) {
-  const { bins } = useGetBins(target, range);
   const layers = [
     new MVTLayer({
       id: "values",
@@ -26,6 +23,9 @@ export default function Map({
       autoHighlight: true,
       uniqueIdProperty: "id",
       onClick: (info) => handleSetPopupOpen(info.object.properties),
+      updateTriggers: {
+        getFillColor: { bins },
+      },
     }),
   ];
 

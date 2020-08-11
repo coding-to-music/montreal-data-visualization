@@ -7,6 +7,8 @@ import useOnClickOutside from "./useOnClickOutside";
 import Settings from "./Settings";
 import useGetViewport from "./useGetViewport";
 import Popup from "./Popup";
+import PriceInput from "./PriceInput";
+import useGetBins from "./useGetBins";
 
 function App() {
   const { width, height } = useGetViewport();
@@ -23,8 +25,9 @@ function App() {
   };
   const settingsRef = useRef();
   const popupRef = useRef();
-  const [target] = useState(300000);
+  const [target, setTarget] = useState(500000);
   const [range] = useState([0.05, 0.15, 0.3]);
+  const { bins } = useGetBins(target, range);
   const [viewState, setViewState] = useState(locations.Montreal);
   const [isSettingsOpen, setSettingsOpen] = useState(false);
   const [isPopupOpen, setPopupOpen] = useState(false);
@@ -51,6 +54,12 @@ function App() {
     });
   };
 
+  const handleSetTarget = (event) => {
+    const value = event.currentTarget.value;
+    setTarget(value);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div>
       <Map
@@ -61,6 +70,7 @@ function App() {
         target={target}
         range={range}
         handleSetPopupOpen={handleSetPopupOpen}
+        bins={bins}
       />
       <Popup
         isPopupOpen={isPopupOpen}
@@ -72,7 +82,9 @@ function App() {
         range={range}
         handleSetSettingsOpen={handleSetSettingsOpen}
       />
-      <Settings isSettingsOpen={isSettingsOpen} ref={settingsRef} />
+      <Settings isSettingsOpen={isSettingsOpen} ref={settingsRef}>
+        <PriceInput target={target} handleSetTarget={handleSetTarget} />
+      </Settings>
       <div className={styles.controls}>
         {Object.keys(locations).map((key) => {
           return (
