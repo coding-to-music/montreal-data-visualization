@@ -67,8 +67,8 @@ body {
   position: absolute;
   padding: 0.5em;
   margin: 0.5em;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
+  background: #333;
+  color: gainsboro;
   font-size: 1em;
   z-index: 100;
   pointer-events: none;

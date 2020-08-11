@@ -42,9 +42,17 @@ export default function Map({
           layers={layers}
           getTooltip={({ object }) =>
             object && {
-              html: `<div>${
+              html: `<div>
+              <div >${
                 object.properties.address
-              }</div><div>$${object.properties.price.toLocaleString()}</div>`,
+              }</div><div>$${object.properties.price.toLocaleString()}</div>
+              </div>`,
+              style: {
+                backgroundColor: "#333",
+                color: "gainsboro",
+                fontSize: "1rem",
+                borderRadius: ".25em",
+              },
             }
           }
         />
