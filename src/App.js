@@ -6,6 +6,7 @@ import Legend from "./Legend";
 import useOnClickOutside from "./useOnClickOutside";
 import Settings from "./Settings";
 import useGetViewport from "./useGetViewport";
+import Popup from "./Popup";
 
 function App() {
   const { width, height } = useGetViewport();
@@ -20,15 +21,24 @@ function App() {
       bearing: 0,
     },
   };
-  const ref = useRef();
+  const settingsRef = useRef();
+  const popupRef = useRef();
   const [target] = useState(300000);
   const [range] = useState([0.05, 0.15, 0.3]);
   const [viewState, setViewState] = useState(locations.Montreal);
-  const [isModalOpen, setModalOpen] = useState(false);
+  const [isSettingsOpen, setSettingsOpen] = useState(false);
+  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [popupContents, setPopupContents] = useState();
 
-  useOnClickOutside(ref, () => setModalOpen(false));
-  const handleSetModalOpen = () => {
-    setModalOpen(true);
+  useOnClickOutside(settingsRef, () => setSettingsOpen(false));
+  useOnClickOutside(popupRef, () => setPopupOpen(false));
+
+  const handleSetSettingsOpen = () => {
+    setSettingsOpen(true);
+  };
+  const handleSetPopupOpen = (info) => {
+    setPopupContents(info);
+    setPopupOpen(true);
   };
 
   const handleChangeViewState = ({ viewState }) => setViewState(viewState);
@@ -50,13 +60,19 @@ function App() {
         onViewStateChange={handleChangeViewState}
         target={target}
         range={range}
+        handleSetPopupOpen={handleSetPopupOpen}
+      />
+      <Popup
+        isPopupOpen={isPopupOpen}
+        ref={popupRef}
+        popupContents={popupContents}
       />
       <Legend
         target={target}
         range={range}
-        handleSetModalOpen={handleSetModalOpen}
+        handleSetSettingsOpen={handleSetSettingsOpen}
       />
-      <Settings isModalOpen={isModalOpen} ref={ref} />
+      <Settings isSettingsOpen={isSettingsOpen} ref={settingsRef} />
       <div className={styles.controls}>
         {Object.keys(locations).map((key) => {
           return (

@@ -5,7 +5,7 @@ import colors from "./colors.js";
 import useGetBins from "./useGetBins";
 
 export default function Legend(props) {
-  const { target, range, handleSetModalOpen } = props;
+  const { target, range, handleSetSettingsOpen } = props;
   const { bins } = useGetBins(target, range);
   return (
     <div className={styles.legend}>
@@ -32,7 +32,7 @@ export default function Legend(props) {
                 {value === target ? (
                   <div
                     className={styles.legendTarget}
-                    onClick={() => handleSetModalOpen()}
+                    onClick={() => handleSetSettingsOpen()}
                   >
                     ${(value / 1000).toFixed(0)}k
                     <svg

@@ -12,6 +12,7 @@ export default function Map({
   onViewStateChange,
   target,
   range,
+  handleSetPopupOpen,
 }) {
   const { bins } = useGetBins(target, range);
   const layers = [
@@ -24,7 +25,7 @@ export default function Map({
       pickable: true,
       autoHighlight: true,
       uniqueIdProperty: "id",
-      onClick: (info) => console.log(info.object.properties),
+      onClick: (info) => handleSetPopupOpen(info.object.properties),
     }),
   ];
 

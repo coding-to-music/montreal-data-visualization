@@ -2,10 +2,10 @@ import React from "react";
 import styles from "./Settings.module.css";
 
 const Settings = React.forwardRef((props, ref) => {
-  const { isModalOpen } = props;
+  const { isSettingsOpen } = props;
   return (
     <React.Fragment>
-      {isModalOpen ? (
+      {isSettingsOpen ? (
         <div ref={ref} className={styles.modal}>
           Click anywhere outside to close.
         </div>
