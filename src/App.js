@@ -4,6 +4,7 @@ import Map from "./Map";
 import { FlyToInterpolator } from "react-map-gl";
 import Legend from "./Legend";
 import useOnClickOutside from "./useOnClickOutside";
+import Settings from "./Settings";
 
 function App() {
   const locations = {
@@ -52,11 +53,7 @@ function App() {
         range={range}
         handleSetModalOpen={handleSetModalOpen}
       />
-      {isModalOpen ? (
-        <div ref={ref} className={styles.modal}>
-          Click anywhere outside to close.
-        </div>
-      ) : null}
+      <Settings isModalOpen={isModalOpen} ref={ref} />
       <div className={styles.controls}>
         {Object.keys(locations).map((key) => {
           return (

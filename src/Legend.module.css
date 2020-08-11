@@ -1,9 +1,11 @@
 .legend {
+  margin: 0.25em;
   padding: 0.25em;
   position: absolute;
   z-index: 10000;
   left: 0;
-  top: 37vh;
+  top: 0;
+  height: 260px;
   background: #333;
   color: white;
 }

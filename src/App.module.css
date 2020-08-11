@@ -7,17 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.modal {
-  position: absolute;
-  top: 50vh;
-  left: 145px;
-  z-index: 100000;
-  width: 200px;
-  height: 50px;
-  background: dimgray;
-  color: gainsboro;
-}
-
 /* make the control panel float on 
  * top with readable buttons */
 .controls {
