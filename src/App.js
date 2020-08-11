@@ -5,13 +5,17 @@ import { FlyToInterpolator } from "react-map-gl";
 import Legend from "./Legend";
 import useOnClickOutside from "./useOnClickOutside";
 import Settings from "./Settings";
+import useGetViewport from "./useGetViewport";
 
 function App() {
+  const { width, height } = useGetViewport();
+  const base = width > height ? height : width;
+  const zoom = 0.001713395638629284 * base + 8.607476635514018;
   const locations = {
     Montreal: {
-      longitude: -73.65,
-      latitude: 45.53,
-      zoom: 11,
+      longitude: -73.725,
+      latitude: 45.55,
+      zoom: zoom,
       pitch: 0,
       bearing: 0,
     },
