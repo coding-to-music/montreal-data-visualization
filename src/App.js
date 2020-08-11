@@ -29,7 +29,6 @@ function App() {
   useOnClickOutside(ref, () => setModalOpen(false));
   const handleSetModalOpen = () => {
     setModalOpen(true);
-    console.log("opening modal");
   };
 
   const handleChangeViewState = ({ viewState }) => setViewState(viewState);
