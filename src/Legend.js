@@ -34,7 +34,7 @@ export default function Legend(props) {
                     className={styles.legendTarget}
                     onClick={() => handleSetSettingsOpen()}
                   >
-                    ${(value / 1000).toFixed(0)}k
+                    ${(+(value / 1000).toFixed(0)).toLocaleString()}k
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       height="18"
@@ -54,7 +54,7 @@ export default function Legend(props) {
                     </svg>
                   </div>
                 ) : (
-                  "$" + (value / 1000).toFixed(0) + "k"
+                  "$" + (+(value / 1000).toFixed(0)).toLocaleString() + "k"
                 )}
               </div>
             ) : null
