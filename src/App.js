@@ -9,6 +9,7 @@ import useGetViewport from "./useGetViewport";
 import Popup from "./Popup";
 import PriceInput from "./PriceInput";
 import useGetBins from "./useGetBins";
+import RangeInput from "./RangeInput";
 
 function App() {
   const { width, height } = useGetViewport();
@@ -26,7 +27,7 @@ function App() {
   const settingsRef = useRef();
   const popupRef = useRef();
   const [target, setTarget] = useState(500000);
-  const [range] = useState([0.05, 0.15, 0.3]);
+  const [range, setRange] = useState([0.05, 0.15, 0.3]);
   const { bins } = useGetBins(target, range);
   const [viewState, setViewState] = useState(locations.Montreal);
   const [isSettingsOpen, setSettingsOpen] = useState(false);
@@ -60,6 +61,14 @@ function App() {
     window.scrollTo(0, 0);
   };
 
+  const handleSetRange = () => {
+    if (range[0] === 0.3) {
+      setRange([0.1, 0.25, 0.5]);
+    } else {
+      setRange([0.05, 0.15, 0.3]);
+    }
+  };
+
   return (
     <div>
       <Map
@@ -84,6 +93,7 @@ function App() {
       />
       <Settings isSettingsOpen={isSettingsOpen} ref={settingsRef}>
         <PriceInput target={target} handleSetTarget={handleSetTarget} />
+        <RangeInput range={range} handleSetRange={handleSetRange} />
       </Settings>
       <div className={styles.controls}>
         {Object.keys(locations).map((key) => {

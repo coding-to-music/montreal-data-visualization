@@ -3,8 +3,8 @@ import styles from "./PriceInput.module.css";
 
 export default function PriceInput(props) {
   return (
-    <div className={styles.input}>
-      <div className={styles.label}>Target Price</div>
+    <div className={styles.priceInput}>
+      <div className={styles.priceLabel}>Target Price</div>
       <span>
         $
         <input

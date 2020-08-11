@@ -1,0 +1,40 @@
+.rangeInput {
+  margin: 1em;
+}
+
+.rangeLabel {
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+.rangeRadio {
+  cursor: pointer;
+  display: block;
+  margin: 0.5em;
+  font-size: 1em;
+  color: gainsboro;
+  position: relative;
+}
+
+.rangeRadio:before {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #e6e6e6;
+  margin-right: 10px;
+  vertical-align: middle;
+  content: "";
+  position: relative;
+}
+
+.rangeRadioActive {
+  composes: rangeRadio;
+  color: gainsboro;
+  transition: 0.5s;
+}
+
+.rangeRadioActive:before {
+  background: tomato;
+  transition: 0.5s;
+}

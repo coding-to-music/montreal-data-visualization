@@ -1,12 +1,12 @@
-.input {
+.priceInput {
   margin: 1em;
 }
 
-.label {
+.priceLabel {
   margin-left: 1em;
 }
 
-input {
+.priceInput input {
   margin: 1em;
   width: 5em;
 }
