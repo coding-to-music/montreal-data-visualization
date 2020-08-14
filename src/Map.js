@@ -16,7 +16,12 @@ export default function Map({
     new MVTLayer({
       id: "values",
       data: `https://a.tiles.mapbox.com/v4/mappingmtl.anlfff5k/{z}/{x}/{y}.vector.pbf?access_token=${getAccessToken()}`,
-      getFillColor: (d) => getColor(d.properties.price, bins),
+      getFillColor: (d) =>
+        getColor(d.properties.price, bins)
+          .replace("rgb(", "")
+          .replace(")", "")
+          .split(",")
+          .map((value) => +value),
       getLineWidth: 1,
       lineWidthUnits: "pixels",
       pickable: true,

@@ -59,14 +59,17 @@ function App() {
     const value = event.currentTarget.value;
     setTarget(value);
     window.scrollTo(0, 0);
+    console.log(range);
   };
 
   const handleSetRange = () => {
     if (range[0] === 0.3) {
       setRange([0.1, 0.25, 0.5]);
-    } else {
+    }
+    if (range[0] === 0.5) {
       setRange([0.05, 0.15, 0.3]);
     }
+    console.log(range);
   };
 
   return (
