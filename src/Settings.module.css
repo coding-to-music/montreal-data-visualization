@@ -4,8 +4,15 @@
   top: 0;
   left: 146px;
   z-index: 100000;
-  width: 221px;
+  width: 513px;
   height: 268px;
   background: #333;
   color: white;
+}
+
+@media (max-width: 600px) {
+  .modal {
+    width: 98vw;
+    left: 0;
+  }
 }
