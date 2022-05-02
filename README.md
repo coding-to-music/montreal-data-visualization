@@ -27,7 +27,7 @@ https://github.com/anselbrandt/mappingmtl
 ## Environment Values
 
 ```java
-
+REACT_APP_MAPBOX_ACCESS_TOKEN=""
 ```
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
