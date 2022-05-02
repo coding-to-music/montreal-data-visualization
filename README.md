@@ -2,11 +2,11 @@
 
 # 🚀 Javascript full-stack 🚀
 
-https://github.com/coding-to-music/nextjs-contentful-material
+https://github.com/coding-to-music/montreal-data-visualization
 
-https://nextjs-contentful-material.vercel.app
+https://montreal-data-visualization.vercel.app
 
-https://nextjs-contentful-material.herokuapp.com
+https://montreal-data-visualization.herokuapp.com
 
 by ansel brandt https://github.com/anselbrandt
 
@@ -40,14 +40,14 @@ git add .
 git remote remove origin
 git commit -m "first commit"
 git branch -M main
-git remote add origin git@github.com:coding-to-music/nextjs-contentful-material.git
+git remote add origin git@github.com:coding-to-music/montreal-data-visualization.git
 git push -u origin main
 ```
 
 ## Heroku
 
 ```java
-heroku create nextjs-contentful-material
+heroku create montreal-data-visualization
 ```
 
 ## Heroku MongoDB Environment Variables
